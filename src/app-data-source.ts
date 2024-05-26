@@ -14,7 +14,7 @@ export default new DataSource({
   host: 'localhost',
   port: 5432,
   username: 'postgres',
-  password: 'q1w2e3r4t5',
+  password: 'rfusbcvsb',
   database: 'postgres',
   entities: [
     ProizvodKupac,

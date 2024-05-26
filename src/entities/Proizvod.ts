@@ -48,6 +48,23 @@ export default class Proizvod extends BaseEntity {
   @Column('integer', { name: 'kolicina', nullable: true })
   kolicina!: number | null
 
+  @Column('integer', { name: 'kategorija', nullable: true })
+  kategorija!: number | null
+
+  
+  @Column('character varying', { name: 'spec1', nullable: true, length: 255 })
+  spec1!: string | null
+
+  @Column('character varying', { name: 'spec2', nullable: true, length: 255 })
+  spec2!: string | null
+
+  @Column('character varying', { name: 'spec3', nullable: true, length: 255 })
+  spec3!: string | null
+
+  @Column('character varying', { name: 'spec4', nullable: true, length: 255 })
+  spec4!: string | null
+
+
   @Column('timestamp with time zone', {
     name: 'deleted_at',
     nullable: true,
@@ -75,6 +92,11 @@ export default class Proizvod extends BaseEntity {
     this.opis = updatedData.opis
     this.proizvodjac = updatedData.proizvodjac
     this.deletedAt = updatedData.deletedAt ?? null
+    this.kategorija = updatedData.kategorija
+    this.spec1 = updatedData.spec1
+    this.spec2 = updatedData.spec2
+    this.spec3 = updatedData.spec3
+    this.spec4 = updatedData.spec4
   }
 
   toProductResponse(): ProductResponse {
@@ -85,6 +107,11 @@ export default class Proizvod extends BaseEntity {
     productResponse.price = this.cijena
     productResponse.productName = this.imeProizvoda
     productResponse.quantity = this.kolicina
+    productResponse.category = this.kategorija
+    productResponse.spec1 = this.spec1
+    productResponse.spec2 = this.spec2
+    productResponse.spec3 = this.spec3
+    productResponse.spec4 = this.spec4
     const thumbnailImages =
       this.slikas && this.slikas.length > 0
         ? this.slikas.filter((s) => s.isThumbnail)

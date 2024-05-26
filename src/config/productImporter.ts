@@ -64,6 +64,11 @@ export default class ProductImporter {
     product.opis = record[2]
     product.cijena = Number.parseFloat(record[3])
     product.kolicina = Number.parseInt(record[4], 10)
+    product.kategorija = Number.parseInt(record[5])
+    product.spec1 = record[6]
+    product.spec2 = record[7]
+    product.spec3 = record[8]
+    product.spec4 = record[9]
     return product
   }
 }
