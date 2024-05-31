@@ -64,10 +64,12 @@ export default class Kosarica extends BaseEntity {
   }
 
   public async UpdateTotal(): Promise<void> {
+    const popust = 0.05; // hardkodiran popust
     this.total = 0
     this.proizvodKupacs.forEach((pk) => {
       if (this.total != null) this.total += pk.cijena * pk.kolicina
       else this.total = pk.cijena * pk.kolicina
+      if (pk.kolicina >= 5) this.total *= 1 - popust // popust primjeni ako je kolicina 5 ili vise
     })
     this.save()
   }

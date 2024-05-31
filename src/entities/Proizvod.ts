@@ -112,15 +112,18 @@ export default class Proizvod extends BaseEntity {
     productResponse.spec2 = this.spec2
     productResponse.spec3 = this.spec3
     productResponse.spec4 = this.spec4
+    
     const thumbnailImages =
-      this.slikas && this.slikas.length > 0
+      Array.isArray(this.slikas) && this.slikas.length > 0
         ? this.slikas.filter((s) => s.isThumbnail)
         : []
+
     if (thumbnailImages.length > 0) {
       productResponse.thumbnailDescription = thumbnailImages[0].opis
       productResponse.thumbnailLink = thumbnailImages[0].link
       productResponse.thumbnailName = thumbnailImages[0].naziv
     }
+
     return productResponse
   }
 }

@@ -43,6 +43,7 @@ class CartService {
         'kupac.kupacDostava.adresa.grad',
         'proizvodKupacs',
         'proizvodKupacs.proizvod',
+        "proizvodKupacs.proizvod.slikas",
         'racun',
       ],
       where: {
@@ -65,25 +66,33 @@ class CartService {
 
     this.checkIsQuantityValid(product, cartProductAddRequest.quantity)
 
+    // Check if the product already exists in the cart
     const existingProductInCart = cart.proizvodKupacs.find(
       (pk) => pk.proizvod.proizvodId === productId,
-    )
+    );
 
     if (existingProductInCart) {
-      existingProductInCart.kolicina += cartProductAddRequest.quantity
-      await existingProductInCart.save()
+      console.log("Quantity:", existingProductInCart.kolicina);
+      // If the product already exists, update its quantity
+      existingProductInCart.kolicina += cartProductAddRequest.quantity;
+      console.log("Updated quantity:", existingProductInCart.kolicina);
+      await existingProductInCart.save();
     } else {
+      // If the product is not in the cart, create a new cart product
       const cartProduct = ProizvodKupac.CreateCartProduct(
         cart,
         product,
         cartProductAddRequest.quantity,
-      )
-      await cartProduct.save()
+      );
+      await cartProduct.save();
     }
 
-    cart = await this.getCartById(cartId)
-    await cart.UpdateTotal()
-    return cart
+    // Refresh the cart to reflect the changes
+    cart = await this.getCartById(cartId);
+
+    // Update the total price of the cart
+    await cart.UpdateTotal();
+    return cart;
   }
 
   async updateProductQuantity(

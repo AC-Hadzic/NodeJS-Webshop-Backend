@@ -25,9 +25,12 @@ const purchaseCartById = async (req: Request, res: Response) => {
 }
 
 const addProductToCart = async (req: Request, res: Response) => {
-  const cartProductAddRequest = req.body as CartProductAddRequest
+  const cartProductAddRequest = new CartProductAddRequest(); // Initialize the request object
+  cartProductAddRequest.quantity = req.body.quantity; // Populate the quantity field
+  
   const cartId = Number.parseInt(req.params.cartId, 10)
   const productId = Number.parseInt(req.params.productId, 10)
+  
   res.send(
     await cartService.addProductById(cartId, productId, cartProductAddRequest),
   )
