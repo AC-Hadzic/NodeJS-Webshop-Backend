@@ -48,8 +48,8 @@ export default class Proizvod extends BaseEntity {
   @Column('integer', { name: 'kolicina', nullable: true })
   kolicina!: number | null
 
-  @Column('integer', { name: 'kategorija', nullable: true })
-  kategorija!: number | null
+  @Column('character varying', { name: 'kategorija', nullable: true, length: 255 })
+  kategorija!: string | null
 
   
   @Column('character varying', { name: 'spec1', nullable: true, length: 255 })

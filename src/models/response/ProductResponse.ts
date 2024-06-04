@@ -17,7 +17,7 @@ export default class ProductResponse {
 
   thumbnailName!: string | null
 
-  category!: number | null
+  category!: string | null
 
   spec1!: string | null
 

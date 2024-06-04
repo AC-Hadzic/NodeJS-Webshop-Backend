@@ -9,6 +9,7 @@ import cartRoutes from './routes/cartRoutes'
 import errorHandler from './middlewares/errorHandler'
 import ProductImporter from './config/productImporter'
 import authRoutes from './routes/authRoutes'
+import categoryRoutes from './routes/categoryRoutes'
 
 dataSource
   .initialize()
@@ -32,6 +33,7 @@ app.use(express.static('public'))
 app.use('/products', productRoutes)
 app.use('/cart', cartRoutes)
 app.use('/auth', authRoutes)
+app.use('/category', categoryRoutes)
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`)
