@@ -12,11 +12,11 @@ import Kategorija from './entities/Kategorija'
 
 export default new DataSource({
   type: 'postgres',
-  host: 'localhost',
+  host: process.env.PGHOST,
   port: 5432,
-  username: 'postgres',
-  password: 'rfusbcvsb',
-  database: 'postgres',
+  username: process.env.PGUSER,
+  password: process.env.PGPASSWORD,
+  database: process.env.PGDATABASE,
   entities: [
     ProizvodKupac,
     Racun,
