@@ -29,4 +29,7 @@ export default new DataSource({
     FileImportTracker,
     Kategorija,
   ],
+  ssl: {
+    rejectUnauthorized: false, // For testing purposes; should be handled securely in production
+  },
 })
