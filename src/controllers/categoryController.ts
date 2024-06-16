@@ -1,12 +1,7 @@
 import { Request, Response } from 'express'
 import categoryService from '../services/categoryService'
-import appDataSource from '../../api/app-data-source';
 
 const getAllCategories = async (req: Request, res: Response) => {
-  if (!appDataSource.isInitialized) {
-    await appDataSource.initialize();
-  }
-  
   res.send(await categoryService.getAllCategories())
 }
 
