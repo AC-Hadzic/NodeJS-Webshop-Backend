@@ -11,6 +11,9 @@ import ProductImporter from './config/productImporter'
 import authRoutes from './routes/authRoutes'
 import categoryRoutes from './routes/categoryRoutes'
 
+const app: Express = express()
+const port = process.env.PORT || 3000
+
 dataSource
   .initialize()
   .then(async () => {
@@ -20,9 +23,6 @@ dataSource
   .catch((err) => {
     console.error('Error during Data Source initialization:', err)
   })
-
-const app: Express = express()
-const port = process.env.PORT || 3000
 
 app.use(cors())
 app.use(compression())
