@@ -27,10 +27,6 @@ dataSource
     console.error('Error during Data Source initialization:', err)
   })
 
-console.log(`PGHOST: ${process.env.PGHOST}`);
-console.log(`PGUSER: ${process.env.PGUSER}`);
-console.log(`PGDATABASE: ${process.env.PGDATABASE}`);
-
 app.use(cors())
 app.use(compression())
 app.use(express.json())
@@ -46,5 +42,3 @@ app.use(errorHandler);
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`)
 })
-
-module.exports = app;
