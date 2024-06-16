@@ -5,13 +5,13 @@ import express, { Express } from 'express'
 import cors from 'cors'
 import compression from 'compression'
 import dataSource from './app-data-source'
-import productRoutes from '../src/routes/productRoutes'
-import cartRoutes from '../src/routes/cartRoutes'
-import errorHandler from '../src/middlewares/errorHandler'
-import ProductImporter from '../src/config/productImporter'
-import authRoutes from '../src/routes/authRoutes'
-import categoryRoutes from '../src/routes/categoryRoutes'
-import initializationMiddleware from '../src/middlewares/initialization';
+import productRoutes from './routes/productRoutes'
+import cartRoutes from './routes/cartRoutes'
+import errorHandler from './middlewares/errorHandler'
+import ProductImporter from './config/productImporter'
+import authRoutes from './routes/authRoutes'
+import categoryRoutes from './routes/categoryRoutes'
+import initializationMiddleware from './middlewares/initialization';
 
 dotenv.config();
 

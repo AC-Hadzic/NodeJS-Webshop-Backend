@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import appDataSource from '../../api/app-data-source';
+import appDataSource from '../app-data-source';
 
 const initializationMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   if (!appDataSource.isInitialized) {
