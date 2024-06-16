@@ -10,12 +10,6 @@ import errorHandler from './middlewares/errorHandler'
 import ProductImporter from './config/productImporter'
 import authRoutes from './routes/authRoutes'
 import categoryRoutes from './routes/categoryRoutes'
-import * as dotenv from 'dotenv'
-
-dotenv.config();
-
-const app: Express = express()
-const port = process.env.PORT || 3000
 
 dataSource
   .initialize()
@@ -27,8 +21,12 @@ dataSource
     console.error('Error during Data Source initialization:', err)
   })
 
+const app: Express = express()
+const port = process.env.PORT || 3000
+
 app.use(cors())
 app.use(compression())
+app.use(errorHandler)
 app.use(express.json())
 app.use(express.static('public'))
 
@@ -36,8 +34,6 @@ app.use('/products', productRoutes)
 app.use('/cart', cartRoutes)
 app.use('/auth', authRoutes)
 app.use('/category', categoryRoutes)
-
-app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`)
