@@ -1,5 +1,6 @@
 // src/index.js
 import express, { Express } from 'express'
+import * as dotenv from 'dotenv'
 import 'reflect-metadata'
 import cors from 'cors'
 import compression from 'compression'
@@ -10,7 +11,6 @@ import errorHandler from '../src/middlewares/errorHandler'
 import ProductImporter from '../src/config/productImporter'
 import authRoutes from '../src/routes/authRoutes'
 import categoryRoutes from '../src/routes/categoryRoutes'
-import * as dotenv from 'dotenv'
 
 dotenv.config();
 
