@@ -1,7 +1,7 @@
 // src/index.js
-import express, { Express } from 'express'
+import 'reflect-metadata';
 import * as dotenv from 'dotenv'
-import 'reflect-metadata'
+import express, { Express } from 'express'
 import cors from 'cors'
 import compression from 'compression'
 import dataSource from './app-data-source'
