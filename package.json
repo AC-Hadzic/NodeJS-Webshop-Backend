@@ -14,9 +14,8 @@
     "typeorm": "typeorm-ts-node-commonjs",
     "migrate": "npm run typeorm migration:run -- -d ./src/app-data-source.ts",
     "migrate-revert": "npm run typeorm migration:revert -- -d ./src/app-data-source.ts",
-    "generate-entities-from-db": "typeorm-model-generator -h localhost -d postgres -u postgres -x rfusbcvsb -e postgres -o . -s public"
+    "generate-entities-from-db": "typeorm-model-generator -h localhost -d postgres -u postgres -x q1w2e3r4t5 -e postgres -o . -s public"
   },
-  
   "author": "",
   "license": "ISC",
   "devDependencies": {

@@ -17,7 +17,6 @@ export default new DataSource({
   username: process.env.PGUSER,
   password: process.env.PGPASSWORD,
   database: process.env.PGDATABASE,
-  ssl: false,
   entities: [
     ProizvodKupac,
     Racun,
@@ -30,7 +29,7 @@ export default new DataSource({
     FileImportTracker,
     Kategorija,
   ],
-  // ssl: {
-  //   rejectUnauthorized: false, // For testing purposes; should be handled securely in production
-  // },
+  ssl: {
+    rejectUnauthorized: false, // For testing purposes; should be handled securely in production
+  },
 })
