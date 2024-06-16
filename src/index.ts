@@ -10,6 +10,9 @@ import errorHandler from './middlewares/errorHandler'
 import ProductImporter from './config/productImporter'
 import authRoutes from './routes/authRoutes'
 import categoryRoutes from './routes/categoryRoutes'
+import * as dotenv from 'dotenv'
+
+dotenv.config();
 
 const app: Express = express()
 const port = process.env.PORT || 3000
