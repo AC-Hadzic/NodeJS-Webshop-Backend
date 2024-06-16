@@ -8,7 +8,7 @@ import Kupac from '../src/entities/Kupac'
 import Grad from '../src/entities/Grad'
 import Adresa from '../src/entities/Adresa'
 import FileImportTracker from '../src/entities/FileImportTracker'
-import Kategorija from '../../src/entities/Kategorija'
+import Kategorija from '../src/entities/Kategorija'
 
 export default new DataSource({
   type: 'postgres',
