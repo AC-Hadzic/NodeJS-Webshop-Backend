@@ -14,7 +14,7 @@ import categoryRoutes from '../src/routes/categoryRoutes'
 
 dotenv.config();
 
-const app: Express = express()
+const app = express();
 const port = process.env.PORT || 3000
 
 dataSource
