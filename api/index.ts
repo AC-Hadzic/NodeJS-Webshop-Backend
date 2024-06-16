@@ -11,6 +11,7 @@ import errorHandler from '../src/middlewares/errorHandler'
 import ProductImporter from '../src/config/productImporter'
 import authRoutes from '../src/routes/authRoutes'
 import categoryRoutes from '../src/routes/categoryRoutes'
+import initializationMiddleware from '../src/middlewares/initialization';
 
 dotenv.config();
 
@@ -30,6 +31,9 @@ dataSource
 console.log(`PGHOST: ${process.env.PGHOST}`);
 console.log(`PGUSER: ${process.env.PGUSER}`);
 console.log(`PGDATABASE: ${process.env.PGDATABASE}`);
+
+// provjeri dal postoji to uopce
+app.use(initializationMiddleware)
 
 app.use(cors())
 app.use(compression())
