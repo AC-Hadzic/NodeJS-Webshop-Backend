@@ -29,7 +29,6 @@ dataSource
 
 app.use(cors())
 app.use(compression())
-app.use(errorHandler)
 app.use(express.json())
 app.use(express.static('public'))
 
@@ -37,6 +36,8 @@ app.use('/products', productRoutes)
 app.use('/cart', cartRoutes)
 app.use('/auth', authRoutes)
 app.use('/category', categoryRoutes)
+
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`)
