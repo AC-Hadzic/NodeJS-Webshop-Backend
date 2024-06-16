@@ -27,6 +27,11 @@ dataSource
     console.error('Error during Data Source initialization:', err)
   })
 
+console.log(`PGHOST: ${process.env.PGHOST}`);
+console.log(`PGUSER: ${process.env.PGUSER}`);
+console.log(`PGDATABASE: ${process.env.PGDATABASE}`);
+console.log(`PORT: ${process.env.PORT}`);
+
 app.use(cors())
 app.use(compression())
 app.use(express.json())
